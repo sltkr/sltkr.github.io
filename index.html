@@ -10,7 +10,7 @@
         <div class="starter-template">
             <h1>JG Thursday Night GameBlast</h1>
             <p class="lead">
-                Every third Thursday of the month after work, armies will rise and enemies shall fall.
+                Every third Thursday of the month after work. Armies will rise, enemies shall fall.
             </p>
         </div>
 
@@ -45,8 +45,6 @@
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js"></script>
     <script type="text/javascript">
 
-        var before = "Christmas!";
-        var current = "Today is Christmas. Merry Christmas!";
         var montharray = new Array("Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec");
 
         function countdown(yr, m, d) {
@@ -65,10 +63,13 @@
             var todaystring = montharray[todaym] + " " + todayd + ", " + todayy + " " + todayh + ":" + todaymin + ":" + todaysec;
             futurestring = montharray[m - 1] + " " + d + ", " + yr;
             dd = Date.parse(futurestring) - Date.parse(todaystring);
-            dday = Math.floor(dd / (60 * 60 * 1000 * 24) * 1);
+            dday = Math.floor(dd / (60 * 60 * 1000 * 24) * 1) + 1;
 
             if (dday <= 0) {
                 $('#count2').text("");
+                return;
+            } else if (dday === 1) {
+                $('#count2').text("Only " + dday + " day left");
                 return;
             } else
                 $('#count2').text("Only " + dday + " days left");
